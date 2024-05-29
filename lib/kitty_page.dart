@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:livintecchui/create_group_page.dart';
 
 class KittyPage extends StatefulWidget {
   const KittyPage({super.key});
@@ -220,10 +221,19 @@ class _KittyPageState extends State<KittyPage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          _buildCard(
-                            color: Colors.pink.shade200,
-                            title: 'Create\ngroup',
-                            icon: Icons.group_add,
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const CreateGroupPage()));
+                            },
+                            child: _buildCard(
+                              color: Colors.pink.shade200,
+                              title: 'Create\ngroup',
+                              icon: Icons.group_add,
+                            ),
                           ),
                           InkWell(
                             onTap: () {
