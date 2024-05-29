@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:livintecchui/explore_page.dart';
 import 'package:livintecchui/kitty_page.dart';
 import 'package:livintecchui/main_home_page.dart';
+import 'package:livintecchui/profile_page.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -16,7 +17,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     const MainHomePage(),
     const ExplorePage(),
     const KittyPage(),
-    Container(),
+    const ProfilePage()
   ];
 
   @override
@@ -35,6 +36,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         selectedLabelStyle: const TextStyle(color: Colors.black),
         unselectedLabelStyle: const TextStyle(color: Colors.grey),
         type: BottomNavigationBarType.fixed, // Ensures icons don't move
+        elevation: 20,
         items: [
           BottomNavigationBarItem(
             icon: _buildIcon(Icons.home, 0),
