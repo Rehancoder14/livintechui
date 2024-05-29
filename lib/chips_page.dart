@@ -19,14 +19,11 @@ class _ChipsPageState extends State<ChipsPage> {
           ),
           onPressed: () {},
         ),
-        title: const Row(
-          children: [
-            Text(
-              'Back',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            )
-          ],
+        title: const Text(
+          'Back',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
         ),
+        actions: [],
       ),
       body: Padding(
           padding: const EdgeInsets.only(
@@ -87,7 +84,7 @@ class _ChipsPageState extends State<ChipsPage> {
                                 top: 10,
                                 left: 20,
                               ),
-                              hintText: 'Enter your phone number',
+                              hintText: 'Search',
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Colors.blue),
                                 borderRadius:
@@ -127,6 +124,11 @@ class _ChipsPageState extends State<ChipsPage> {
                             spacing: 8.0,
                             children: List.generate(choiceChip.length, (index) {
                               return ChoiceChip(
+                                avatar: choiceChip[index]["isSelected"]
+                                    ? Container()
+                                    : Image.asset(
+                                        choiceChip[index]['icon'],
+                                      ),
                                 checkmarkColor: Colors.white,
                                 selectedColor: Colors.pink.shade300,
                                 shape: RoundedRectangleBorder(
@@ -154,30 +156,35 @@ class _ChipsPageState extends State<ChipsPage> {
                           const SizedBox(
                             height: 40,
                           ),
-                          Row(children: [
-                            Expanded(
-                              child: SizedBox(
-                                height: 50,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
+                          Row(
+                            children: [
+                              Expanded(
+                                child: SizedBox(
+                                  height: 50,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
                                       shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
+                                        borderRadius: BorderRadius.circular(
+                                          10,
+                                        ),
+                                      ),
                                       backgroundColor: Colors.pink.shade400,
-                                      foregroundColor: Colors.white),
-                                  onPressed: () {
-                                    // Handle continue button press
-                                  },
-                                  child: const Text(
-                                    'Done',
-                                    style: TextStyle(
-                                      fontSize: 16,
+                                      foregroundColor: Colors.white,
+                                    ),
+                                    onPressed: () {
+                                      // Handle continue button press
+                                    },
+                                    child: const Text(
+                                      'Done',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ]),
+                            ],
+                          ),
                         ],
                       ),
                     ),

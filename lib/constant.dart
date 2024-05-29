@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 class AppColors {
-  static const Color purpulish = Color(0xFFC4A1FF);
+  static const Color purpulish = Color.fromARGB(255, 226, 215, 245);
 }
 
 List<dynamic> choiceChip = [
