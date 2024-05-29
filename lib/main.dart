@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:livintecchui/chips_page.dart';
+import 'package:livintecchui/profile__page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,11 +14,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      // theme: ThemeData(
-      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      //   useMaterial3: true,
-      // ),
-      home: ChipsPage(),
+      home: ProfilePage(),
     );
   }
 }
