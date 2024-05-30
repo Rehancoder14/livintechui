@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:livintecchui/add_member_page.dart';
 import 'package:livintecchui/component/raisedbox.dart';
 import 'package:livintecchui/constant.dart';
+import 'package:livintecchui/group_about.dart';
 
 class GroupDescriptionPage extends StatelessWidget {
   const GroupDescriptionPage({super.key});
@@ -76,44 +77,56 @@ class GroupDescriptionPage extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child: Container(
-                      height: 55,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(
-                          30,
-                        ),
-                        color: Colors.white,
-                        border: Border.all(
-                          color: Colors.black,
-                        ),
-                        boxShadow: const [
-                          BoxShadow(
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const GroupPartyAbout(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        height: 55,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                            30,
+                          ),
+                          color: Colors.white,
+                          border: Border.all(
                             color: Colors.black,
-                            spreadRadius: 1,
-                            blurRadius: 1,
-                            offset: Offset(2, 3), // changes position of shadow
                           ),
-                        ],
-                      ),
-                      child: const Row(
-                        children: [
-                          SizedBox(
-                            width: 10,
-                          ),
-                          CircleAvatar(
-                            backgroundColor: Color.fromARGB(255, 243, 215, 245),
-                            child: Icon(Icons.celebration),
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            'Party',
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                        ],
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.black,
+                              spreadRadius: 1,
+                              blurRadius: 1,
+                              offset:
+                                  Offset(2, 3), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: const Row(
+                          children: [
+                            SizedBox(
+                              width: 10,
+                            ),
+                            CircleAvatar(
+                              backgroundColor:
+                                  Color.fromARGB(255, 243, 215, 245),
+                              child: Icon(Icons.celebration),
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              'Party',
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

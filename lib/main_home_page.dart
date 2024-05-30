@@ -463,12 +463,12 @@ class _MainHomePageState extends State<MainHomePage> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(3, (index) {
         return Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(4.0),
           child: Container(
-            width: 10,
+            width: _currentPage == index ? 30 : 10,
             height: 10,
             decoration: BoxDecoration(
-              shape: BoxShape.circle,
+              borderRadius: BorderRadius.circular(10),
               color: _currentPage == index
                   ? const Color.fromARGB(255, 159, 109, 246)
                   : Colors.grey,

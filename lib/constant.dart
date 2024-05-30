@@ -4,6 +4,8 @@ class AppColors {
   static const Color purpulish = Color.fromARGB(255, 226, 215, 245);
 }
 
+const bool isDark = false;
+
 List<dynamic> choiceChip = [
   {
     "name": "Camping",
