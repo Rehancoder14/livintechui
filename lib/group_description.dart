@@ -3,6 +3,7 @@ import 'package:livintecchui/add_member_page.dart';
 import 'package:livintecchui/component/raisedbox.dart';
 import 'package:livintecchui/constant.dart';
 import 'package:livintecchui/group_about.dart';
+import 'package:livintecchui/polls/create_polls.dart';
 
 class GroupDescriptionPage extends StatelessWidget {
   const GroupDescriptionPage({super.key});
@@ -134,41 +135,52 @@ class GroupDescriptionPage extends StatelessWidget {
                     width: 20,
                   ),
                   Expanded(
-                    child: Container(
-                      height: 55,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(
-                          30,
-                        ),
-                        color: Colors.white,
-                        border: Border.all(
-                          color: Colors.black,
-                        ),
-                        boxShadow: const [
-                          BoxShadow(
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CreatePolls(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        height: 55,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                            30,
+                          ),
+                          color: Colors.white,
+                          border: Border.all(
                             color: Colors.black,
-                            spreadRadius: 1,
-                            blurRadius: 1,
-                            offset: Offset(2, 3), // changes position of shadow
                           ),
-                        ],
-                      ),
-                      child: const Row(
-                        children: [
-                          SizedBox(
-                            width: 10,
-                          ),
-                          CircleAvatar(
-                            backgroundColor: AppColors.purpulish,
-                            child: Icon(Icons.gamepad_sharp),
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            'Games',
-                          ),
-                        ],
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.black,
+                              spreadRadius: 1,
+                              blurRadius: 1,
+                              offset:
+                                  Offset(2, 3), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: const Row(
+                          children: [
+                            SizedBox(
+                              width: 10,
+                            ),
+                            CircleAvatar(
+                              backgroundColor: AppColors.purpulish,
+                              child: Icon(Icons.gamepad_sharp),
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              'Games',
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
