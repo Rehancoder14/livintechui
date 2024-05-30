@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:livintecchui/chat_page.dart';
 import 'package:livintecchui/explore_page.dart';
 import 'package:livintecchui/kitty_page.dart';
 import 'package:livintecchui/main_home_page.dart';
-import 'package:livintecchui/profile_page.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -17,7 +17,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     const MainHomePage(),
     const ExplorePage(),
     const KittyPage(),
-    const ProfilePage()
+    const ChatPage(),
   ];
 
   @override

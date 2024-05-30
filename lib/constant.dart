@@ -56,3 +56,34 @@ List<dynamic> choiceChip = [
     "icon": "assets/literature.png",
   }
 ];
+List<dynamic> messages = [
+  {
+    "msg": "Hey! how have you been?",
+    "own": false,
+  },
+  {
+    "msg": "Wanna catchup for beer?",
+    "own": false,
+  },
+  {
+    "msg": "Awesome! Let’s meet up",
+    "own": true,
+  },
+  {
+    "msg": "Can I also get my cousin along?\nWill that be okay?",
+    "own": true,
+  },
+  {
+    "msg": "Yeah sure! get him too.",
+    "own": false,
+  },
+  {
+    "msg": "yeah okay",
+    "own": true,
+  },
+  {
+    "msg": "Look at how choco sleeps in my arm",
+    "own": true,
+    "image": 'assets/pageview.png',
+  }
+];
