@@ -180,10 +180,41 @@ class _AddImagePostState extends State<AddImagePost> {
   }
 
   Widget _buildImg() {
-    return Image.asset(
-      'assets/pageview.png',
-      height: 80,
-      width: 80,
+    return Stack(
+      children: [
+        Container(
+          height: 80,
+          width: 80,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(
+              10,
+            ),
+            image: const DecorationImage(
+                image: AssetImage(
+                  'assets/pageview.png',
+                ),
+                fit: BoxFit.cover),
+          ),
+        ),
+        Positioned(
+          right: 2,
+          top: 2,
+          child: Container(
+            height: 15,
+            width: 15,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(
+                10,
+              ),
+              image: const DecorationImage(
+                  image: AssetImage(
+                    'assets/close.png',
+                  ),
+                  fit: BoxFit.cover),
+            ),
+          ),
+        )
+      ],
     );
   }
 }

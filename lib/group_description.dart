@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:livintecchui/add_member_page.dart';
 import 'package:livintecchui/component/raisedbox.dart';
 import 'package:livintecchui/constant.dart';
-import 'package:livintecchui/group_about.dart';
+import 'package:livintecchui/kitty_party_event_page.dart';
+import 'package:livintecchui/party_list_page.dart';
 import 'package:livintecchui/polls/create_polls.dart';
+import 'package:livintecchui/profile_page.dart';
 
 class GroupDescriptionPage extends StatelessWidget {
   const GroupDescriptionPage({super.key});
@@ -57,11 +59,21 @@ class GroupDescriptionPage extends StatelessWidget {
           vertical: 3,
         ),
         child: Column(children: [
-          const CircleAvatar(
-              radius: 60,
-              backgroundImage: AssetImage(
-                'assets/pageview.png',
-              )),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const KittyPartEventPage(),
+                ),
+              );
+            },
+            child: const CircleAvatar(
+                radius: 60,
+                backgroundImage: AssetImage(
+                  'assets/pageview.png',
+                )),
+          ),
           const SizedBox(
             height: 5,
           ),
@@ -83,7 +95,7 @@ class GroupDescriptionPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const GroupPartyAbout(),
+                            builder: (context) => const PartyListPage(),
                           ),
                         );
                       },
@@ -249,48 +261,58 @@ class GroupDescriptionPage extends StatelessWidget {
                   child: ListView.builder(
                       itemCount: 6,
                       itemBuilder: (context, index) {
-                        return SizedBox(
-                          height: 65,
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  const Row(
-                                    children: [
-                                      CircleAvatar(
-                                        radius: 22,
-                                        backgroundImage:
-                                            AssetImage('assets/female.png'),
-                                      ),
-                                      Text(
-                                        '  Ava Thompson',
-                                        style: TextStyle(fontSize: 15),
-                                      )
-                                    ],
-                                  ),
-                                  PopupMenuButton(
-                                    itemBuilder: ((context) => [
-                                          PopupMenuItem(
-                                            child: Text(
-                                              'Make group admin',
-                                            ),
-                                          ),
-                                          PopupMenuItem(
-                                            child: Text(
-                                              'Remove Ava Thompson',
-                                            ),
-                                          ),
-                                        ]),
-                                  )
-                                ],
+                        return InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ProfilePage(),
                               ),
-                              Divider(
-                                thickness: 1,
-                                color: Colors.grey.shade400,
-                              )
-                            ],
+                            );
+                          },
+                          child: SizedBox(
+                            height: 65,
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    const Row(
+                                      children: [
+                                        CircleAvatar(
+                                          radius: 22,
+                                          backgroundImage:
+                                              AssetImage('assets/female.png'),
+                                        ),
+                                        Text(
+                                          '  Ava Thompson',
+                                          style: TextStyle(fontSize: 15),
+                                        )
+                                      ],
+                                    ),
+                                    PopupMenuButton(
+                                      itemBuilder: ((context) => [
+                                            const PopupMenuItem(
+                                              child: Text(
+                                                'Make group admin',
+                                              ),
+                                            ),
+                                            const PopupMenuItem(
+                                              child: Text(
+                                                'Remove Ava Thompson',
+                                              ),
+                                            ),
+                                          ]),
+                                    )
+                                  ],
+                                ),
+                                Divider(
+                                  thickness: 1,
+                                  color: Colors.grey.shade400,
+                                )
+                              ],
+                            ),
                           ),
                         );
                       }),
