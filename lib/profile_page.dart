@@ -53,33 +53,33 @@ class _ProfilePageState extends State<ProfilePage> {
           color: Colors.white,
           child: Stack(
             children: [
-              SingleChildScrollView(
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.36,
-                      child: ClipPath(
-                        clipper:
-                            BottomCurveClipper(), // Custom clipper for convex curve
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.rectangle,
-                            image: DecorationImage(
-                              image: AssetImage('assets/bgimg.png'),
-                              fit: BoxFit.cover,
-                            ),
+              Column(
+                children: [
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.25,
+                    child: ClipPath(
+                      clipper:
+                          BottomCurveClipper(), // Custom clipper for convex curve
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.rectangle,
+                          image: DecorationImage(
+                            image: AssetImage('assets/bgimg.png'),
+                            fit: BoxFit.cover,
                           ),
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 50,
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 6.0,
+                      horizontal: 15,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 15.0,
-                        horizontal: 15,
-                      ),
+                    child: SingleChildScrollView(
                       child: Column(
                         children: [
                           const Text(
@@ -94,16 +94,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           const Text('@jessicaJones | 7397941495'),
                           const SizedBox(
-                            height: 10,
-                          ),
-                          const ExpansionTile(
-                            leading: Icon(Icons.description),
-                            title: Text(
-                              'Edit Profile Information',
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10,
+                            height: 5,
                           ),
                           ExpansionTile(
                             leading: const Icon(Icons.dark_mode),
@@ -125,7 +116,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                           ),
                           const SizedBox(
-                            height: 10,
+                            height: 5,
                           ),
                           const ExpansionTile(
                             leading: Icon(Icons.description),
@@ -134,7 +125,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                           ),
                           const SizedBox(
-                            height: 10,
+                            height: 5,
                           ),
                           const ExpansionTile(
                             leading: Icon(
@@ -147,7 +138,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                           ),
                           const SizedBox(
-                            height: 10,
+                            height: 5,
                           ),
                           const ExpansionTile(
                             leading: Icon(
@@ -160,13 +151,13 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                           ),
                           const SizedBox(
-                            height: 10,
+                            height: 5,
                           ),
                         ],
                       ),
-                    )
-                  ],
-                ),
+                    ),
+                  )
+                ],
               ),
               Positioned(
                 top: 40,
@@ -230,7 +221,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
               const Positioned(
-                top: 200,
+                top: 120,
                 right: 5,
                 left: 5,
                 child: CircleAvatar(
@@ -241,7 +232,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
               Positioned(
-                  top: 295,
+                  top: 210,
                   right: 120,
                   // left: 5,
                   child: SizedBox(

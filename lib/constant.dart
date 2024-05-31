@@ -4,6 +4,8 @@ class AppColors {
   static const Color purpulish = Color.fromARGB(255, 226, 215, 245);
 }
 
+const bool isDark = false;
+
 List<dynamic> choiceChip = [
   {
     "name": "Camping",
@@ -54,5 +56,36 @@ List<dynamic> choiceChip = [
     "name": "Literature",
     "isSelected": false,
     "icon": "assets/literature.png",
+  }
+];
+List<dynamic> messages = [
+  {
+    "msg": "Hey! how have you been?",
+    "own": false,
+  },
+  {
+    "msg": "Wanna catchup for beer?",
+    "own": false,
+  },
+  {
+    "msg": "Awesome! Let’s meet up",
+    "own": true,
+  },
+  {
+    "msg": "Can I also get my cousin along?\nWill that be okay?",
+    "own": true,
+  },
+  {
+    "msg": "Yeah sure! get him too.",
+    "own": false,
+  },
+  {
+    "msg": "yeah okay",
+    "own": true,
+  },
+  {
+    "msg": "Look at how choco sleeps in my arm",
+    "own": true,
+    "image": 'assets/pageview.png',
   }
 ];

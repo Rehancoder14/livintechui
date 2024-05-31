@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:livintecchui/create_group_page.dart';
+import 'package:livintecchui/group_description.dart';
 
 class KittyPage extends StatefulWidget {
   const KittyPage({super.key});
@@ -18,40 +19,52 @@ class _KittyPageState extends State<KittyPage> {
   }
 
   Widget _buildChipCard({required Color color}) {
-    return Container(
-      margin: const EdgeInsets.symmetric(
-        horizontal: 10,
-        vertical: 10,
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: color,
-        border: Border.all(color: Colors.black),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.black,
-            spreadRadius: 1,
-            blurRadius: 1,
-            offset: Offset(2, 3), // changes position of shadow
-          ),
-        ],
-      ),
-      child: ListTile(
-        shape: RoundedRectangleBorder(
+    return InkWell(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => GroupDescriptionPage()));
+      },
+      child: Container(
+        margin: const EdgeInsets.symmetric(
+          horizontal: 10,
+          vertical: 10,
+        ),
+        decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
+          color: color,
+          border: Border.all(color: Colors.black),
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.black,
+              spreadRadius: 1,
+              blurRadius: 1,
+              offset: Offset(2, 3), // changes position of shadow
+            ),
+          ],
         ),
-        tileColor: color,
-        leading: const CircleAvatar(
-          backgroundImage: AssetImage('assets/pageview.png'),
-          backgroundColor: Colors.pink,
-          child: Text('R'),
+        child: ListTile(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          tileColor: color,
+          leading: InkWell(
+            onTap: () {},
+            child: const CircleAvatar(
+              backgroundImage: AssetImage('assets/pageview.png'),
+              backgroundColor: Colors.pink,
+              child: Text('R'),
+            ),
+          ),
+          title: InkWell(
+            onTap: () {},
+            child: const Text(
+              'Kitty Group 3',
+              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+            ),
+          ),
+          subtitle: const Text('Hi Trish! Hope you are doing....'),
+          trailing: const Text('29th May'),
         ),
-        title: const Text(
-          'Kitty Group 3',
-          style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
-        ),
-        subtitle: const Text('Hi Trish! Hope you are doing....'),
-        trailing: const Text('29th May'),
       ),
     );
   }
