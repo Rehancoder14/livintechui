@@ -8,6 +8,7 @@ class ChatPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: isDark ? Colors.grey.shade900 : Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: const Color.fromARGB(255, 177, 134, 252),
@@ -224,6 +225,7 @@ class ChatPage extends StatelessWidget {
       builder: (BuildContext context) {
         return Container(
           padding: const EdgeInsets.all(16),
+          color: isDark ? Colors.black : Colors.white,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
@@ -234,6 +236,7 @@ class ChatPage extends StatelessWidget {
                   const Text(
                     'Invite Friends',
                     style: TextStyle(
+                      color: isDark ? Colors.white : Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 22,
                     ),
@@ -249,12 +252,19 @@ class ChatPage extends StatelessWidget {
               const SizedBox(height: 8),
               const Text(
                 'Share this invite code to people let them quickly join this Group',
-                style: TextStyle(fontSize: 14),
+                style: TextStyle(
+                  fontSize: 14,
+                  color: isDark ? Colors.white : Colors.black,
+                ),
               ),
               const SizedBox(height: 20),
               TextFormField(
                 decoration: InputDecoration(
                   hintText: '#sdlasdhlsndlsdsk',
+                  labelStyle:
+                      TextStyle(color: isDark ? Colors.white : Colors.black),
+                  hintStyle:
+                      TextStyle(color: isDark ? Colors.white : Colors.black),
                   contentPadding: const EdgeInsets.symmetric(
                     vertical: 10,
                     horizontal: 10,
@@ -277,7 +287,7 @@ class ChatPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: const [
                     BoxShadow(
-                      color: Colors.black,
+                      color: isDark ? Colors.white : Colors.black,
                       spreadRadius: 1,
                       blurRadius: 1,
                       offset: Offset(2, 3), // changes position of shadow

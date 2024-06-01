@@ -18,9 +18,10 @@ class _KittyPartEventPageState extends State<KittyPartEventPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: isDark ? AppColors.blackLight : Colors.white,
       body: Container(
         height: double.infinity,
-        color: Colors.white,
+        color: isDark ? AppColors.blackLight : Colors.white,
         child: Stack(
           children: [
             SingleChildScrollView(
@@ -132,7 +133,7 @@ class _KittyPartEventPageState extends State<KittyPartEventPage> {
                   borderRadius: BorderRadius.circular(
                     30,
                   ),
-                  color: Colors.white,
+                  color: isDark ? AppColors.blackLight : Colors.white,
                   border: Border.all(
                     color: Colors.black,
                   ),
@@ -155,7 +156,9 @@ class _KittyPartEventPageState extends State<KittyPartEventPage> {
                             Text(
                               'Kitty party event',
                               style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 20),
+                                  color: isDark ? Colors.white : Colors.black,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 20),
                             ),
                             Text(
                               'Kitty party group name',
@@ -235,11 +238,15 @@ class _KittyPartEventPageState extends State<KittyPartEventPage> {
                                   height: 40,
                                   width: 40,
                                   decoration: BoxDecoration(
-                                      color: Colors.white,
+                                      color: isDark
+                                          ? AppColors.blackLight
+                                          : Colors.white,
                                       borderRadius: BorderRadius.circular(10)),
                                   child: const Center(
                                     child: Icon(
                                       Icons.location_on,
+                                      color:
+                                          isDark ? Colors.white : Colors.black,
                                     ),
                                   ),
                                 ),
@@ -265,11 +272,15 @@ class _KittyPartEventPageState extends State<KittyPartEventPage> {
                                   height: 40,
                                   width: 40,
                                   decoration: BoxDecoration(
-                                      color: Colors.white,
+                                      color: isDark
+                                          ? AppColors.blackLight
+                                          : Colors.white,
                                       borderRadius: BorderRadius.circular(10)),
                                   child: const Center(
                                     child: Icon(
                                       Icons.calendar_month,
+                                      color:
+                                          isDark ? Colors.white : Colors.black,
                                     ),
                                   ),
                                 ),
@@ -400,7 +411,11 @@ class _KittyPartEventPageState extends State<KittyPartEventPage> {
                   ),
                   const Text(
                     'Attendance ',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: isDark ? Colors.white : Colors.black,
+                    ),
                   ),
                 ],
               ),
@@ -434,7 +449,7 @@ class _KittyPartEventPageState extends State<KittyPartEventPage> {
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
-                      color: Colors.black54,
+                      color: isDark ? Colors.white : Colors.black54,
                     ),
                   ),
                 ],
@@ -505,7 +520,10 @@ class _KittyPartEventPageState extends State<KittyPartEventPage> {
                   ),
                   Text(
                     '  Ava Thompson',
-                    style: TextStyle(fontSize: 15),
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: isDark ? Colors.white : Colors.black,
+                    ),
                   )
                 ],
               ),

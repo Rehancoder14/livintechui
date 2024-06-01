@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:livintecchui/constant.dart';
+import 'package:livintecchui/invitation_page.dart';
 
 class ChipsPage extends StatefulWidget {
   const ChipsPage({super.key});
@@ -12,7 +13,10 @@ class _ChipsPageState extends State<ChipsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: isDark ? AppColors.blackColor : Colors.white,
       appBar: AppBar(
+        backgroundColor: isDark ? AppColors.blackColor : Colors.white,
+        foregroundColor: isDark ? Colors.white : Colors.black,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back,
@@ -32,7 +36,7 @@ class _ChipsPageState extends State<ChipsPage> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const Row(
+                Row(
                   children: [
                     Padding(
                       padding: EdgeInsets.only(
@@ -44,6 +48,7 @@ class _ChipsPageState extends State<ChipsPage> {
                         'Interests',
                         style: TextStyle(
                           fontSize: 22,
+                          color: isDark ? Colors.white : Colors.black,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -51,7 +56,9 @@ class _ChipsPageState extends State<ChipsPage> {
                   ],
                 ),
                 Card(
-                  elevation: 5,
+                  color: isDark ? AppColors.blackColor : Colors.white,
+                  elevation: isDark ? 5 : 0.5,
+                  shadowColor: Colors.black26,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(
@@ -62,6 +69,7 @@ class _ChipsPageState extends State<ChipsPage> {
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
+                      color: isDark ? AppColors.blackColor : Colors.white,
                       borderRadius: BorderRadius.circular(
                         30,
                       ),
@@ -85,6 +93,9 @@ class _ChipsPageState extends State<ChipsPage> {
                                 left: 20,
                               ),
                               hintText: 'Search',
+                              prefixIcon: Icon(
+                                Icons.search,
+                              ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Colors.blue),
                                 borderRadius:
@@ -108,12 +119,15 @@ class _ChipsPageState extends State<ChipsPage> {
                           const SizedBox(
                             height: 20,
                           ),
-                          const Row(
+                          Row(
                             children: [
                               Text(
                                 "Suggested interest based on your profile",
                                 style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w400),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                  color: isDark ? Colors.white : Colors.black54,
+                                ),
                               ),
                             ],
                           ),
@@ -172,7 +186,13 @@ class _ChipsPageState extends State<ChipsPage> {
                                       foregroundColor: Colors.white,
                                     ),
                                     onPressed: () {
-                                      // Handle continue button press
+                                      Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              const InvitationPage(),
+                                        ),
+                                      );
                                     },
                                     child: const Text(
                                       'Done',

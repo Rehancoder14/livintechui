@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:livintecchui/chips_page.dart';
+import 'package:livintecchui/constant.dart';
 
 class OpenWp extends StatelessWidget {
   const OpenWp({super.key});
@@ -7,7 +8,10 @@ class OpenWp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: isDark ? AppColors.blackColor : Colors.white,
       appBar: AppBar(
+        backgroundColor: isDark ? AppColors.blackColor : Colors.white,
+        foregroundColor: isDark ? Colors.white : Colors.black,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -27,7 +31,10 @@ class OpenWp extends StatelessWidget {
             children: [
               const Text(
                 'Choose an avatar',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: isDark ? Colors.white : Colors.black),
               ),
               const SizedBox(height: 16),
               const Padding(
@@ -37,23 +44,27 @@ class OpenWp extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 40,
-                      backgroundColor: Colors.yellow,
-                      child: Icon(Icons.person),
+                      backgroundImage: AssetImage(
+                        'assets/female.png',
+                      ),
                     ),
                     CircleAvatar(
                       radius: 40,
-                      backgroundColor: Colors.yellow,
-                      child: Icon(Icons.person),
+                      backgroundImage: AssetImage(
+                        'assets/female.png',
+                      ),
                     ),
                     CircleAvatar(
                       radius: 40,
-                      backgroundColor: Colors.yellow,
-                      child: Icon(Icons.person),
+                      backgroundImage: AssetImage(
+                        'assets/female.png',
+                      ),
                     ),
                     CircleAvatar(
                       radius: 40,
-                      backgroundColor: Colors.yellow,
-                      child: Icon(Icons.person),
+                      backgroundImage: AssetImage(
+                        'assets/female.png',
+                      ),
                     ),
                   ],
                 ),
@@ -70,29 +81,39 @@ class OpenWp extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 40,
-                      backgroundColor: Colors.yellow,
-                      child: Icon(Icons.person),
+                      backgroundImage: AssetImage(
+                        'assets/female.png',
+                      ),
                     ),
                     CircleAvatar(
                       radius: 40,
-                      backgroundColor: Colors.yellow,
-                      child: Icon(Icons.person),
+                      backgroundImage: AssetImage(
+                        'assets/female.png',
+                      ),
                     ),
                     CircleAvatar(
                       radius: 40,
-                      backgroundColor: Colors.yellow,
-                      child: Icon(Icons.person),
+                      backgroundImage: AssetImage(
+                        'assets/female.png',
+                      ),
                     ),
                     CircleAvatar(
                       radius: 40,
-                      backgroundColor: Colors.yellow,
-                      child: Icon(Icons.upload),
+                      // backgroundImage: AssetImage(
+                      //   'assets/female.png',
+                      // ),
+                      backgroundColor: Color.fromARGB(255, 239, 130, 166),
+                      child: Icon(
+                        Icons.upload,
+                        color: Colors.white,
+                      ),
                     ),
                   ],
                 ),
               ),
               Card(
-                elevation: 5,
+                color: isDark ? AppColors.blackColor : Colors.white,
+                elevation: 0.5,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(
@@ -103,6 +124,11 @@ class OpenWp extends StatelessWidget {
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(
+                          isDark ? 'assets/darkrec.png' : 'assets/lightrec.png',
+                        ),
+                        fit: BoxFit.fill),
                     borderRadius: BorderRadius.circular(
                       30,
                     ),
@@ -113,11 +139,11 @@ class OpenWp extends StatelessWidget {
                     left: 10,
                     right: 10,
                   ),
-                  margin: const EdgeInsets.only(left: 30, top: 10),
+                  margin: const EdgeInsets.only(top: 10),
                   child: Column(
                     children: [
                       const CircleAvatar(
-                        backgroundColor: Colors.pink,
+                        backgroundImage: AssetImage('assets/female.png'),
                         radius: 50,
                       ),
                       const SizedBox(
@@ -128,7 +154,9 @@ class OpenWp extends StatelessWidget {
                           Text(
                             'Welcome to kitty party!',
                             style: TextStyle(
-                                fontSize: 24, fontWeight: FontWeight.w700),
+                                fontSize: 24,
+                                fontWeight: FontWeight.w700,
+                                color: isDark ? Colors.white : Colors.black),
                           ),
                         ],
                       ),
@@ -140,7 +168,9 @@ class OpenWp extends StatelessWidget {
                           Text(
                             "Let's start with your name",
                             style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.w400),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                                color: isDark ? Colors.white : Colors.black),
                           ),
                         ],
                       ),
@@ -149,10 +179,13 @@ class OpenWp extends StatelessWidget {
                       ),
                       TextFormField(
                         decoration: const InputDecoration(
-                          focusColor: Colors.pink,
-                          labelText: 'First name*',
-                          hintText: 'Enter your first name',
-                        ),
+                            focusColor: Colors.pink,
+                            labelText: 'First name*',
+                            hintText: 'Enter your first name',
+                            labelStyle: TextStyle(
+                                color: isDark ? Colors.white : Colors.black),
+                            hintStyle: TextStyle(
+                                color: isDark ? Colors.white : Colors.black)),
                         keyboardType: TextInputType.phone,
                       ),
                       const SizedBox(
@@ -162,6 +195,10 @@ class OpenWp extends StatelessWidget {
                         decoration: const InputDecoration(
                           focusColor: Colors.pink,
                           labelText: 'last name*',
+                          labelStyle: TextStyle(
+                              color: isDark ? Colors.white : Colors.black),
+                          hintStyle: TextStyle(
+                              color: isDark ? Colors.white : Colors.black),
                           hintText: 'Enter your last name',
                         ),
                         keyboardType: TextInputType.phone,
@@ -180,7 +217,12 @@ class OpenWp extends StatelessWidget {
                                   backgroundColor: Colors.pink.shade400,
                                   foregroundColor: Colors.white),
                               onPressed: () {
-                                // Handle continue button press
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const ChipsPage(),
+                                  ),
+                                );
                               },
                               child: const Text('Continue'),
                             ),

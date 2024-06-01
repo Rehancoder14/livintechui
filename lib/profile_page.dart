@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:livintecchui/constant.dart';
 import 'package:livintecchui/create_group_page.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -13,44 +14,45 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: Container(
-          margin: const EdgeInsets.symmetric(
-            horizontal: 20,
-            vertical: 10,
-          ),
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.black),
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: const [
-              BoxShadow(
-                color: Colors.black,
-                spreadRadius: 1,
-                blurRadius: 1,
-                offset: Offset(2, 3), // changes position of shadow
-              ),
-            ],
-          ),
-          child: ElevatedButton(
-            onPressed: () {
-              // Handle the join action
-            },
-            style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(
-                    20,
-                  ),
-                ),
-                foregroundColor: Colors.black,
-                minimumSize: const Size(double.infinity, 50),
-                backgroundColor: const Color.fromARGB(255, 203, 177, 247)),
-            child: const Text(
-              'Create',
-            ),
-          ),
-        ),
+        backgroundColor: isDark ? AppColors.blackLight : Colors.white,
+        // bottomNavigationBar: Container(
+        //   margin: const EdgeInsets.symmetric(
+        //     horizontal: 20,
+        //     vertical: 10,
+        //   ),
+        //   decoration: BoxDecoration(
+        //     border: Border.all(color: Colors.black),
+        //     borderRadius: BorderRadius.circular(20),
+        //     boxShadow: const [
+        //       BoxShadow(
+        //         color: isDark ? Colors.white : Colors.black,
+        //         spreadRadius: 1,
+        //         blurRadius: 1,
+        //         offset: Offset(2, 3), // changes position of shadow
+        //       ),
+        //     ],
+        //   ),
+        //   child: ElevatedButton(
+        //     onPressed: () {
+        //       // Handle the join action
+        //     },
+        //     style: ElevatedButton.styleFrom(
+        //         shape: RoundedRectangleBorder(
+        //           borderRadius: BorderRadius.circular(
+        //             20,
+        //           ),
+        //         ),
+        //         foregroundColor: Colors.black,
+        //         minimumSize: const Size(double.infinity, 50),
+        //         backgroundColor: const Color.fromARGB(255, 203, 177, 247)),
+        //     child: const Text(
+        //       'Create',
+        //     ),
+        //   ),
+        // ),
         body: Container(
           height: double.infinity,
-          color: Colors.white,
+          color: isDark ? AppColors.blackLight : Colors.white,
           child: Stack(
             children: [
               Column(
@@ -85,6 +87,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           const Text(
                             'Jessica Jones',
                             style: TextStyle(
+                              color: isDark ? Colors.white : Colors.black,
                               fontWeight: FontWeight.bold,
                               fontSize: 24,
                             ),
@@ -92,62 +95,103 @@ class _ProfilePageState extends State<ProfilePage> {
                           const SizedBox(
                             height: 5,
                           ),
-                          const Text('@jessicaJones | 7397941495'),
+                          const Text('@jessicaJones | 7397941495',
+                              style: TextStyle(
+                                  color: isDark ? Colors.white : Colors.black)),
                           const SizedBox(
                             height: 5,
                           ),
-                          ExpansionTile(
-                            leading: const Icon(Icons.dark_mode),
-                            trailing: Switch(
-                                value: _isOn,
-                                onChanged: (value) {
-                                  setState(() {
-                                    _isOn = !_isOn;
-                                  });
-                                }),
-                            title: Text(
-                              _isOn ? 'Enable light mode' : 'Enable dark mode',
+                          Card(
+                            elevation: 5,
+                            color: isDark ? Colors.black : Colors.white,
+                            shadowColor: isDark ? Colors.white : Colors.grey,
+                            child: ExpansionTile(
+                              leading: const Icon(Icons.dark_mode,
+                                  color: isDark ? Colors.white : Colors.black),
+                              trailing: Switch(
+                                  value: _isOn,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _isOn = !_isOn;
+                                    });
+                                  }),
+                              title: Text(
+                                _isOn
+                                    ? 'Enable light mode'
+                                    : 'Enable dark mode',
+                                style: const TextStyle(
+                                    color:
+                                        isDark ? Colors.white : Colors.black),
+                              ),
                             ),
                           ),
-                          const ExpansionTile(
-                            leading: Icon(Icons.description),
-                            title: Text(
-                              'Privacy Policy',
+                          const Card(
+                            elevation: 5,
+                            color: isDark ? Colors.black : Colors.white,
+                            shadowColor: isDark ? Colors.white : Colors.grey,
+                            child: ExpansionTile(
+                              leading: Icon(Icons.description,
+                                  color: isDark ? Colors.white : Colors.black),
+                              title: Text(
+                                'Privacy Policy',
+                                style: TextStyle(
+                                    color:
+                                        isDark ? Colors.white : Colors.black),
+                              ),
                             ),
                           ),
                           const SizedBox(
                             height: 5,
                           ),
-                          const ExpansionTile(
-                            leading: Icon(Icons.description),
-                            title: Text(
-                              'Terms and condition',
+                          const Card(
+                            elevation: 5,
+                            color: isDark ? Colors.black : Colors.white,
+                            shadowColor: isDark ? Colors.white : Colors.grey,
+                            child: ExpansionTile(
+                              leading: Icon(Icons.description,
+                                  color: isDark ? Colors.white : Colors.black),
+                              title: Text(
+                                'Terms and condition',
+                                style: TextStyle(
+                                    color:
+                                        isDark ? Colors.white : Colors.black),
+                              ),
                             ),
                           ),
                           const SizedBox(
                             height: 5,
                           ),
-                          const ExpansionTile(
-                            leading: Icon(
-                              Icons.call,
-                              color: Colors.green,
-                            ),
-                            title: Text(
-                              'Contact us',
-                              style: TextStyle(color: Colors.green),
+                          const Card(
+                            elevation: 5,
+                            color: isDark ? Colors.black : Colors.white,
+                            shadowColor: isDark ? Colors.white : Colors.grey,
+                            child: ExpansionTile(
+                              leading: Icon(
+                                Icons.call,
+                                color: Colors.green,
+                              ),
+                              title: Text(
+                                'Contact us',
+                                style: TextStyle(color: Colors.green),
+                              ),
                             ),
                           ),
                           const SizedBox(
                             height: 5,
                           ),
-                          const ExpansionTile(
-                            leading: Icon(
-                              Icons.logout,
-                              color: Colors.red,
-                            ),
-                            title: Text(
-                              'Log out',
-                              style: TextStyle(color: Colors.red),
+                          const Card(
+                            elevation: 5,
+                            color: isDark ? Colors.black : Colors.white,
+                            shadowColor: isDark ? Colors.white : Colors.grey,
+                            child: ExpansionTile(
+                              leading: Icon(
+                                Icons.logout,
+                                color: Colors.red,
+                              ),
+                              title: Text(
+                                'Log out',
+                                style: TextStyle(color: Colors.red),
+                              ),
                             ),
                           ),
                           const SizedBox(

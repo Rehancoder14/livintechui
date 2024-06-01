@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:livintecchui/add_member_page.dart';
+import 'package:livintecchui/chat_page.dart';
 import 'package:livintecchui/component/raisedbox.dart';
 import 'package:livintecchui/constant.dart';
 import 'package:livintecchui/kitty_party_event_page.dart';
 import 'package:livintecchui/party_list_page.dart';
 import 'package:livintecchui/polls/create_polls.dart';
-import 'package:livintecchui/profile_page.dart';
 
 class GroupDescriptionPage extends StatelessWidget {
   const GroupDescriptionPage({super.key});
@@ -13,7 +13,10 @@ class GroupDescriptionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: isDark ? AppColors.blackLight : Colors.white,
       appBar: AppBar(
+        backgroundColor: isDark ? AppColors.blackLight : Colors.white,
+        foregroundColor: isDark ? Colors.white : AppColors.blackLight,
         title: const Padding(
           padding: EdgeInsets.only(top: 10.0),
           child: Text(
@@ -36,20 +39,23 @@ class GroupDescriptionPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(
                 10,
               ),
-              color: Colors.white,
+              color: isDark ? Colors.black : Colors.white,
               border: Border.all(
-                color: Colors.black,
+                color: isDark ? Colors.white : Colors.black,
               ),
               boxShadow: const [
                 BoxShadow(
-                  color: Colors.black,
+                  color: isDark ? Colors.white : Colors.black,
                   spreadRadius: 1,
                   blurRadius: 1,
                   offset: Offset(2, 3), // changes position of shadow
                 ),
               ],
             ),
-            child: const Icon(Icons.settings_outlined),
+            child: const Icon(
+              Icons.settings_outlined,
+              color: isDark ? Colors.white : Colors.black,
+            ),
           ),
         ],
       ),
@@ -79,7 +85,11 @@ class GroupDescriptionPage extends StatelessWidget {
           ),
           const Text(
             'Kitty Party group name',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: isDark ? Colors.white : Colors.black,
+            ),
           ),
           const SizedBox(
             height: 5,
@@ -105,13 +115,13 @@ class GroupDescriptionPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(
                             30,
                           ),
-                          color: Colors.white,
+                          color: isDark ? Colors.black : Colors.white,
                           border: Border.all(
                             color: Colors.black,
                           ),
                           boxShadow: const [
                             BoxShadow(
-                              color: Colors.black,
+                              color: isDark ? Colors.white : Colors.black,
                               spreadRadius: 1,
                               blurRadius: 1,
                               offset:
@@ -134,6 +144,9 @@ class GroupDescriptionPage extends StatelessWidget {
                             ),
                             Text(
                               'Party',
+                              style: TextStyle(
+                                color: isDark ? Colors.white : Colors.black,
+                              ),
                             ),
                             SizedBox(
                               width: 5,
@@ -162,13 +175,13 @@ class GroupDescriptionPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(
                             30,
                           ),
-                          color: Colors.white,
+                          color: isDark ? Colors.black : Colors.white,
                           border: Border.all(
                             color: Colors.black,
                           ),
                           boxShadow: const [
                             BoxShadow(
-                              color: Colors.black,
+                              color: isDark ? Colors.white : Colors.black,
                               spreadRadius: 1,
                               blurRadius: 1,
                               offset:
@@ -190,6 +203,9 @@ class GroupDescriptionPage extends StatelessWidget {
                             ),
                             Text(
                               'Games',
+                              style: TextStyle(
+                                color: isDark ? Colors.white : Colors.black,
+                              ),
                             ),
                           ],
                         ),
@@ -211,8 +227,11 @@ class GroupDescriptionPage extends StatelessWidget {
                   children: [
                     Text(
                       'Description',
-                      style:
-                          TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        color: isDark ? Colors.white : Colors.black,
+                      ),
                     ),
                   ],
                 ),
@@ -222,7 +241,7 @@ class GroupDescriptionPage extends StatelessWidget {
                 const Text(
                   'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum.',
                   style: TextStyle(
-                    color: Colors.black45,
+                    color: isDark ? Colors.white : Colors.black45,
                     fontSize: 12,
                   ),
                 ),
@@ -234,8 +253,11 @@ class GroupDescriptionPage extends StatelessWidget {
                   children: [
                     const Text(
                       'Members (40)',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        color: isDark ? Colors.white : Colors.black,
+                      ),
                     ),
                     InkWell(
                       onTap: () {
@@ -266,7 +288,7 @@ class GroupDescriptionPage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const ProfilePage(),
+                                builder: (context) => const ChatPage(),
                               ),
                             );
                           },
@@ -287,20 +309,39 @@ class GroupDescriptionPage extends StatelessWidget {
                                         ),
                                         Text(
                                           '  Ava Thompson',
-                                          style: TextStyle(fontSize: 15),
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            color: isDark
+                                                ? Colors.white
+                                                : Colors.black,
+                                          ),
                                         )
                                       ],
                                     ),
                                     PopupMenuButton(
+                                      iconColor:
+                                          isDark ? Colors.white : Colors.black,
+                                      color:
+                                          isDark ? Colors.black : Colors.white,
                                       itemBuilder: ((context) => [
                                             const PopupMenuItem(
                                               child: Text(
                                                 'Make group admin',
+                                                style: TextStyle(
+                                                  color: isDark
+                                                      ? Colors.white
+                                                      : Colors.black,
+                                                ),
                                               ),
                                             ),
                                             const PopupMenuItem(
                                               child: Text(
                                                 'Remove Ava Thompson',
+                                                style: TextStyle(
+                                                  color: isDark
+                                                      ? Colors.white
+                                                      : Colors.black,
+                                                ),
                                               ),
                                             ),
                                           ]),

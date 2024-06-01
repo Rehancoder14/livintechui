@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:livintecchui/constant.dart';
 import 'package:livintecchui/polls/add_image_post.dart';
 
 class CreatePolls extends StatefulWidget {
@@ -14,14 +15,15 @@ class _CreatePollsState extends State<CreatePolls> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: isDark ? AppColors.blackLight : Colors.white,
       bottomNavigationBar: Container(
-        margin: EdgeInsets.symmetric(vertical: 12, horizontal: 15),
+        margin: const EdgeInsets.symmetric(vertical: 12, horizontal: 15),
         decoration: BoxDecoration(
           border: Border.all(color: Colors.black),
           borderRadius: BorderRadius.circular(20),
           boxShadow: const [
             BoxShadow(
-              color: Colors.black,
+              color: isDark ? Colors.white : Colors.black,
               spreadRadius: 1,
               blurRadius: 1,
               offset: Offset(2, 3), // changes position of shadow
@@ -36,7 +38,7 @@ class _CreatePollsState extends State<CreatePolls> {
                   20,
                 ),
               ),
-              foregroundColor: Colors.black,
+              foregroundColor: isDark ? Colors.white : Colors.black,
               minimumSize: const Size(double.infinity, 50),
               backgroundColor: const Color.fromARGB(255, 203, 177, 247)),
           child: const Text(
@@ -45,10 +47,13 @@ class _CreatePollsState extends State<CreatePolls> {
         ),
       ),
       appBar: AppBar(
+        backgroundColor: isDark ? AppColors.blackLight : Colors.white,
+        foregroundColor: isDark ? Colors.white : AppColors.blackLight,
         title: const Text(
           'Create Poll',
           style: TextStyle(
             fontSize: 16,
+            color: isDark ? Colors.white : Colors.black,
             fontWeight: FontWeight.w700,
           ),
         ),
@@ -59,7 +64,7 @@ class _CreatePollsState extends State<CreatePolls> {
                   return const AddImagePost();
                 }));
               },
-              icon: Icon(Icons.add))
+              icon: const Icon(Icons.add))
         ],
       ),
       body: Padding(
@@ -82,13 +87,14 @@ class _CreatePollsState extends State<CreatePolls> {
                       const Text(
                         'Ava Thompson',
                         style: TextStyle(
+                          color: isDark ? Colors.white : Colors.black,
                           fontWeight: FontWeight.w600,
                           fontSize: 16,
                         ),
                       ),
                       DropdownButton<String>(
                         elevation: 10,
-                        dropdownColor: Colors.white,
+                        dropdownColor: isDark ? Colors.black : Colors.white,
                         borderRadius: BorderRadius.circular(10),
                         value: selectedOption,
                         onChanged: (newValue) {
@@ -96,22 +102,42 @@ class _CreatePollsState extends State<CreatePolls> {
                             selectedOption = newValue!;
                           });
                         },
-                        items: [
+                        items: const [
                           DropdownMenuItem(
                             value: 'public',
-                            child: Text('Public'),
+                            child: Text(
+                              'Public',
+                              style: TextStyle(
+                                color: isDark ? Colors.white : Colors.black,
+                              ),
+                            ),
                           ),
                           DropdownMenuItem(
                             value: 'k1',
-                            child: Text('Kitty Party'),
+                            child: Text(
+                              'Kitty Party',
+                              style: TextStyle(
+                                color: isDark ? Colors.white : Colors.black,
+                              ),
+                            ),
                           ),
                           DropdownMenuItem(
                             value: 'k2',
-                            child: Text('Kitty Party 2'),
+                            child: Text(
+                              'Kitty Party 2',
+                              style: TextStyle(
+                                color: isDark ? Colors.white : Colors.black,
+                              ),
+                            ),
                           ),
                           DropdownMenuItem(
                             value: 'k3',
-                            child: Text('Kitty Party 3'),
+                            child: Text(
+                              'Kitty Party 3',
+                              style: TextStyle(
+                                color: isDark ? Colors.white : Colors.black,
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -122,28 +148,32 @@ class _CreatePollsState extends State<CreatePolls> {
               const SizedBox(height: 16),
               const Text(
                 'Option 1*',
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(
+                    fontSize: 16, color: isDark ? Colors.white : Colors.black),
               ),
               const SizedBox(height: 6),
               _customTextField(maxline: 3),
               const SizedBox(height: 16),
               const Text(
                 'Option 2*',
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(
+                    fontSize: 16, color: isDark ? Colors.white : Colors.black),
               ),
               const SizedBox(height: 6),
               _customTextField(),
               const SizedBox(height: 16),
               const Text(
                 'Option 3*',
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(
+                    fontSize: 16, color: isDark ? Colors.white : Colors.black),
               ),
               const SizedBox(height: 6),
               _customTextField(),
               const SizedBox(height: 16),
               const Text(
                 'Option 4*',
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(
+                    fontSize: 16, color: isDark ? Colors.white : Colors.black),
               ),
               const SizedBox(height: 6),
               _customTextField(),
@@ -183,9 +213,11 @@ class _CreatePollsState extends State<CreatePolls> {
       maxLines: maxline ?? 1,
       showCursor: true,
       decoration: InputDecoration(
-        fillColor: Colors.white,
+        fillColor: isDark ? Colors.grey.shade800 : Colors.white,
         filled: true,
         hintText: 'Add option',
+        labelStyle: TextStyle(color: isDark ? Colors.white : Colors.black),
+        hintStyle: TextStyle(color: isDark ? Colors.white : Colors.black),
         contentPadding: EdgeInsets.symmetric(
             horizontal: 10, vertical: maxline != null ? 5 : 0),
         border: OutlineInputBorder(
