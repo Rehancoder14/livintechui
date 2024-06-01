@@ -7,7 +7,7 @@ class GroupPartyAbout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: isDark ? Colors.black : Colors.white,
+      backgroundColor: isDark ? Colors.grey.shade900 : Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: const Color.fromARGB(255, 191, 154, 255),
@@ -65,7 +65,7 @@ class GroupPartyAbout extends StatelessWidget {
               height: 10,
             ),
             Card(
-              color: Colors.white,
+              color: isDark ? Colors.black : Colors.white,
               elevation: 10,
               child: ExpansionTile(
                 trailing: const Icon(

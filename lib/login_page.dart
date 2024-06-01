@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:livintecchui/constant.dart';
+import 'package:livintecchui/verify_wp.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -6,6 +8,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: isDark ? AppColors.blackColor : Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -13,6 +16,8 @@ class LoginScreen extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 50.0,
+              backgroundImage: AssetImage(
+                  isDark ? 'assets/logodark.png' : 'assets/logo.png'),
               backgroundColor: Colors.pink.shade300,
               // backgroundImage: AssetImage('assets/sunglasses_avatar.png'),
             ),
@@ -21,14 +26,16 @@ class LoginScreen extends StatelessWidget {
             ),
             const Text(
               'Kitty Party',
-              style: TextStyle(fontSize: 26),
+              style: TextStyle(
+                  fontSize: 26, color: isDark ? Colors.white : Colors.black),
             ),
             const SizedBox(
               height: 15,
             ),
             const Text(
               'Welcome to kitty party',
-              style: TextStyle(fontSize: 18),
+              style: TextStyle(
+                  fontSize: 18, color: isDark ? Colors.white : Colors.black),
             ),
             const SizedBox(height: 20.0),
             SizedBox(
@@ -58,7 +65,10 @@ class LoginScreen extends StatelessWidget {
                         backgroundColor: Colors.pink[300],
                         foregroundColor: Colors.white),
                     onPressed: () {
-                      // Handle continue button press
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const VerifyWhatsapp()));
                     },
                     child: const Text('Continue'),
                   ),
@@ -66,7 +76,10 @@ class LoginScreen extends StatelessWidget {
               ),
             ]),
             const SizedBox(height: 20.0),
-            const Text('------------   OR   -------------'),
+            const Text(
+              '------------   OR   -------------',
+              style: TextStyle(color: isDark ? Colors.white : Colors.black),
+            ),
             const SizedBox(height: 20.0),
             Row(children: [
               Expanded(
@@ -94,7 +107,8 @@ class LoginScreen extends StatelessWidget {
             const Text(
               'By signing in, you agree to Terms and Policy',
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 12.0),
+              style: TextStyle(
+                  fontSize: 12.0, color: isDark ? Colors.white : Colors.black),
             ),
           ],
         ),

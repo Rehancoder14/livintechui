@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:livintecchui/chat_page.dart';
+import 'package:livintecchui/constant.dart';
 import 'package:livintecchui/explore_page.dart';
 import 'package:livintecchui/kitty_page.dart';
 import 'package:livintecchui/main_home_page.dart';
+import 'package:livintecchui/profile_page.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -17,7 +18,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     const MainHomePage(),
     const ExplorePage(),
     const KittyPage(),
-    const ChatPage(),
+    const ProfilePage(),
   ];
 
   @override
@@ -25,6 +26,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
     return Scaffold(
       body: _screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor:
+            isDark ? const Color.fromARGB(255, 27, 26, 26) : Colors.white,
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
@@ -33,8 +36,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
         },
         showSelectedLabels: true,
         showUnselectedLabels: true,
-        selectedLabelStyle: const TextStyle(color: Colors.black),
-        unselectedLabelStyle: const TextStyle(color: Colors.grey),
+        selectedLabelStyle:
+            const TextStyle(color: isDark ? Colors.white : Colors.black),
+        unselectedLabelStyle:
+            const TextStyle(color: isDark ? Colors.white : Colors.grey),
         type: BottomNavigationBarType.fixed, // Ensures icons don't move
         elevation: 20,
         items: [
@@ -63,13 +68,25 @@ class _BottomNavBarState extends State<BottomNavBar> {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 16.0),
       decoration: BoxDecoration(
-        color: _currentIndex == index ? Colors.grey[300] : Colors.white,
+        color: isDark
+            ? _currentIndex == index
+                ? Colors.black
+                : Colors.black
+            : _currentIndex == index
+                ? Colors.grey[300]
+                : Colors.white,
         borderRadius: BorderRadius.circular(8.0),
       ),
       child: Icon(
         iconData,
         size: 40,
-        color: _currentIndex == index ? Colors.black : Colors.grey,
+        color: isDark
+            ? _currentIndex == index
+                ? Colors.white
+                : Colors.grey
+            : _currentIndex == index
+                ? Colors.black
+                : Colors.grey,
       ),
     );
   }

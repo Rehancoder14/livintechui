@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:livintecchui/constant.dart';
 
 class RaisedBox extends StatelessWidget {
   final String text;
@@ -25,7 +26,7 @@ class RaisedBox extends StatelessWidget {
         ),
         boxShadow: const [
           BoxShadow(
-            color: Colors.black,
+            color: isDark ? Colors.white : Colors.black,
             spreadRadius: 1,
             blurRadius: 1,
             offset: Offset(3, 4), // changes position of shadow

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:livintecchui/bottom_navbar.dart';
+import 'package:livintecchui/constant.dart';
 
 class InvitationPage extends StatelessWidget {
   const InvitationPage({super.key});
@@ -7,9 +8,12 @@ class InvitationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: isDark ? AppColors.blackColor : Colors.white,
       appBar: AppBar(
+        backgroundColor: isDark ? AppColors.blackColor : Colors.white,
+        foregroundColor: isDark ? Colors.white : Colors.black,
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
           ),
           onPressed: () {},
@@ -30,7 +34,7 @@ class InvitationPage extends StatelessWidget {
                 child: Image.asset('assets/party.png')),
             Card(
               elevation: 5,
-              color: const Color.fromARGB(255, 255, 255, 255),
+              color: isDark ? AppColors.blackColor : Colors.white,
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(
@@ -40,9 +44,9 @@ class InvitationPage extends StatelessWidget {
               ),
               child: Container(
                 width: double.infinity,
-                decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 255, 255, 255),
-                  borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                  color: isDark ? AppColors.blackColor : Colors.white,
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(
                       30,
                     ),
@@ -61,38 +65,47 @@ class InvitationPage extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      const Row(
+                      Row(
                         children: [
                           Text(
                             "Do you have invitation",
                             style: TextStyle(
-                                fontSize: 24, fontWeight: FontWeight.w700),
+                                color: isDark ? Colors.white : Colors.black,
+                                fontSize: 24,
+                                fontWeight: FontWeight.w700),
                           ),
                         ],
                       ),
                       const SizedBox(
                         height: 20,
                       ),
-                      const Text(
+                      Text(
                         "Enter the invitation code provided by your friends",
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w400),
+                            color: isDark ? Colors.white : Colors.black54,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400),
                       ),
                       const SizedBox(
                         height: 8,
                       ),
                       TextFormField(
                         decoration: const InputDecoration(
-                          focusColor: Colors.pink,
-                          labelText: 'Invitation code*',
-                          hintText: 'Enter your invitation code',
-                        ),
+                            focusColor: Colors.pink,
+                            labelText: 'Invitation code*',
+                            hintText: 'Enter your invitation code',
+                            labelStyle: TextStyle(
+                                color: isDark ? Colors.white : Colors.black),
+                            hintStyle: TextStyle(
+                                color: isDark ? Colors.white : Colors.black)),
                         keyboardType: TextInputType.phone,
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      const Text('------------   OR   -------------'),
+                      const Text('------------   OR   -------------',
+                          style: TextStyle(
+                              color: isDark ? Colors.white : Colors.black)),
                       const SizedBox(
                         height: 10,
                       ),
@@ -123,7 +136,7 @@ class InvitationPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Row(
@@ -142,7 +155,13 @@ class InvitationPage extends StatelessWidget {
                                   foregroundColor: Colors.white,
                                 ),
                                 onPressed: () {
-                                  // Handle continue button press
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const BottomNavBar(),
+                                    ),
+                                  );
                                 },
                                 child: const Text(
                                   'Finish',

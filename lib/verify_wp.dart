@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:livintecchui/constant.dart';
+import 'package:livintecchui/open_wp.dart';
 
 class VerifyWhatsapp extends StatelessWidget {
   const VerifyWhatsapp({super.key});
@@ -7,6 +9,7 @@ class VerifyWhatsapp extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: isDark ? AppColors.blackColor : Colors.white,
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -15,21 +18,29 @@ class VerifyWhatsapp extends StatelessWidget {
               CircleAvatar(
                 radius: 50.0,
                 backgroundColor: Colors.pink.shade300,
-                // backgroundImage: AssetImage('assets/sunglasses_avatar.png'),
+                backgroundImage: const AssetImage(
+                    isDark ? 'assets/wpdark.png' : 'assets/wplight.png'),
               ),
               const SizedBox(
                 height: 10,
               ),
               const Text(
                 'OTP link sent on whatsapp',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: isDark ? Colors.white : Colors.black,
+                ),
               ),
               const SizedBox(
                 height: 10,
               ),
               const Text(
                 '#7397941495',
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(
+                  fontSize: 18,
+                  color: isDark ? Colors.white : Colors.black,
+                ),
               ),
               const SizedBox(height: 20.0),
               Row(children: [
@@ -47,7 +58,10 @@ class VerifyWhatsapp extends StatelessWidget {
                         height: 30,
                       ),
                       onPressed: () {
-                        // Handle continue button press
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const OpenWp()));
                       },
                       label: const Text('Open whatsapp'),
                     ),
@@ -80,7 +94,10 @@ class VerifyWhatsapp extends StatelessWidget {
                   Text(
                     'Trouble with whatsapp? ',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 14.0),
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      color: isDark ? Colors.white : Colors.black,
+                    ),
                   ),
                   Text(
                     'Try another method',

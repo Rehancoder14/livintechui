@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:livintecchui/constant.dart';
 
 // Dummy static data
 final dummyRequest = {
@@ -37,10 +38,10 @@ class _PostWidgetState extends State<PostWidget> {
       padding: const EdgeInsets.only(bottom: 5.0, left: 10, top: 10, right: 10),
       child: Container(
         decoration: BoxDecoration(
-            color: Colors.white,
+            color: isDark ? AppColors.blackLight : Colors.white,
             borderRadius: borderRadius,
             border: Border.all(
-              color: Colors.black87,
+              color: isDark ? Colors.white : Colors.black87,
             )),
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -70,6 +71,9 @@ class _PostWidgetState extends State<PostWidget> {
                                 .textTheme
                                 .labelMedium!
                                 .copyWith(
+                                  color: isDark
+                                      ? Colors.white
+                                      : AppColors.blackLight,
                                   fontSize: 14,
                                 ),
                           ),
@@ -78,13 +82,14 @@ class _PostWidgetState extends State<PostWidget> {
                             style: TextStyle(
                               fontWeight: FontWeight.w400,
                               fontSize: 12,
-                              color: Color(0xff4E5D78),
+                              color: isDark ? Colors.white : Color(0xff4E5D78),
                             ),
                           ),
                         ],
                       ),
                       // Static placeholder for PostVisibilitytDropDown
-                      const Icon(Icons.more_vert),
+                      const Icon(Icons.more_vert,
+                          color: isDark ? Colors.white : Colors.black),
                     ],
                   ),
                 ),
@@ -96,7 +101,10 @@ class _PostWidgetState extends State<PostWidget> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 5.0),
               child: Text(widget.text,
-                  style: Theme.of(context).textTheme.bodyMedium),
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium!
+                      .copyWith(color: isDark ? Colors.white : Colors.black)),
             ),
             !widget.image
                 ? Container()
@@ -120,23 +128,23 @@ class _PostWidgetState extends State<PostWidget> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Icon(
-                      Icons.favorite_outline,
-                    ),
+                    const Icon(Icons.favorite_outline,
+                        color: isDark ? Colors.white : Colors.black),
                     Text(
                       '1.5k',
                       style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                            color: Colors.grey[900],
+                            color: isDark ? Colors.white : Colors.grey[900],
                           ),
                     ),
                     const SizedBox(
                       width: 10,
                     ),
-                    const Icon(Icons.comment),
+                    const Icon(Icons.comment,
+                        color: isDark ? Colors.white : Colors.black),
                     Text(
                       '5000',
                       style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                            color: Colors.grey[900],
+                            color: isDark ? Colors.white : Colors.grey[900],
                           ),
                     ),
                   ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:livintecchui/component/raisedbox.dart';
+import 'package:livintecchui/constant.dart';
 
 class AddMemberPage extends StatefulWidget {
   const AddMemberPage({super.key});
@@ -24,8 +25,9 @@ class _AddMemberPageState extends State<AddMemberPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: isDark ? AppColors.blackLight : Colors.white,
       bottomNavigationBar: Container(
-        margin: EdgeInsets.symmetric(vertical: 12, horizontal: 15),
+        margin: const EdgeInsets.symmetric(vertical: 12, horizontal: 15),
         decoration: BoxDecoration(
           border: Border.all(color: Colors.black),
           borderRadius: BorderRadius.circular(20),
@@ -57,6 +59,8 @@ class _AddMemberPageState extends State<AddMemberPage> {
         ),
       ),
       appBar: AppBar(
+        backgroundColor: isDark ? AppColors.blackLight : Colors.white,
+        foregroundColor: isDark ? Colors.white : AppColors.blackLight,
         title: const Text(
           'Back',
           style: TextStyle(
@@ -96,7 +100,7 @@ class _AddMemberPageState extends State<AddMemberPage> {
                         ),
                         boxShadow: const [
                           BoxShadow(
-                            color: Colors.black,
+                            color: isDark ? Colors.white : Colors.black,
                             spreadRadius: 1,
                             blurRadius: 1,
                             offset: Offset(2, 3), // changes position of shadow
@@ -140,13 +144,13 @@ class _AddMemberPageState extends State<AddMemberPage> {
                         ),
                         color: isSelectedChip
                             ? const Color.fromARGB(255, 193, 232, 254)
-                            : Color.fromARGB(255, 224, 236, 241),
+                            : const Color.fromARGB(255, 224, 236, 241),
                         border: Border.all(
                           color: Colors.black,
                         ),
                         boxShadow: const [
                           BoxShadow(
-                            color: Colors.black,
+                            color: isDark ? Colors.white : Colors.black,
                             spreadRadius: 1,
                             blurRadius: 1,
                             offset: Offset(2, 3), // changes position of shadow
@@ -155,19 +159,19 @@ class _AddMemberPageState extends State<AddMemberPage> {
                       ),
                       child: Row(
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           CircleAvatar(
                             backgroundColor: isSelectedChip
                                 ? Colors.cyanAccent
                                 : Colors.cyan.shade50,
-                            child: Icon(Icons.person_2),
+                            child: const Icon(Icons.person_2),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
-                          Text(
+                          const Text(
                             ' Select Manually    ',
                           ),
                         ],
@@ -183,7 +187,8 @@ class _AddMemberPageState extends State<AddMemberPage> {
                 padding: const EdgeInsets.all(10.0),
                 child: Card(
                   elevation: 10,
-                  color: Colors.white,
+                  shadowColor: isDark ? Colors.white : Colors.transparent,
+                  color: isDark ? Colors.black54 : Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(
                       40,
@@ -193,7 +198,7 @@ class _AddMemberPageState extends State<AddMemberPage> {
                     padding: const EdgeInsets.symmetric(
                         vertical: 20, horizontal: 15),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: isDark ? Colors.black54 : Colors.white,
                       borderRadius: BorderRadius.circular(
                         20,
                       ),
@@ -203,6 +208,7 @@ class _AddMemberPageState extends State<AddMemberPage> {
                         const Text(
                           'Select number of host',
                           style: TextStyle(
+                            color: isDark ? Colors.white : Colors.black,
                             fontSize: 20,
                             fontWeight: FontWeight.w700,
                           ),
@@ -285,7 +291,8 @@ class _AddMemberPageState extends State<AddMemberPage> {
                 child: isSelectedChip
                     ? Card(
                         elevation: 10,
-                        color: Colors.white,
+                        shadowColor: isDark ? Colors.white : Colors.transparent,
+                        color: isDark ? Colors.black54 : Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(
                             40,
@@ -295,7 +302,7 @@ class _AddMemberPageState extends State<AddMemberPage> {
                           padding: const EdgeInsets.symmetric(
                               vertical: 20, horizontal: 15),
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: isDark ? Colors.black54 : Colors.white,
                             borderRadius: BorderRadius.circular(
                               20,
                             ),
@@ -305,6 +312,7 @@ class _AddMemberPageState extends State<AddMemberPage> {
                               const Text(
                                 'Select host',
                                 style: TextStyle(
+                                  color: isDark ? Colors.white : Colors.black,
                                   fontSize: 20,
                                   fontWeight: FontWeight.w700,
                                 ),
@@ -312,7 +320,10 @@ class _AddMemberPageState extends State<AddMemberPage> {
                               if (!isSelectedChip) ...[
                                 const Text(
                                   'Total members: 9',
-                                  style: TextStyle(fontSize: 12),
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: isDark ? Colors.white : Colors.black,
+                                  ),
                                 ),
                                 const SizedBox(
                                   height: 4,
@@ -360,7 +371,9 @@ class _AddMemberPageState extends State<AddMemberPage> {
                                                   border: isSelected[index]
                                                       ? null
                                                       : Border.all(
-                                                          color: Colors.black,
+                                                          color: isDark
+                                                              ? Colors.white
+                                                              : Colors.black,
                                                         ),
                                                 ),
                                                 child: isSelected[index]
@@ -385,7 +398,8 @@ class _AddMemberPageState extends State<AddMemberPage> {
                       )
                     : Card(
                         elevation: 10,
-                        color: Colors.white,
+                        shadowColor: isDark ? Colors.white : Colors.transparent,
+                        color: isDark ? Colors.black87 : Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(
                             40,
@@ -395,7 +409,7 @@ class _AddMemberPageState extends State<AddMemberPage> {
                           padding: const EdgeInsets.symmetric(
                               vertical: 20, horizontal: 15),
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: isDark ? Colors.black87 : Colors.white,
                             borderRadius: BorderRadius.circular(
                               20,
                             ),
@@ -405,13 +419,17 @@ class _AddMemberPageState extends State<AddMemberPage> {
                               const Text(
                                 'Eligible members',
                                 style: TextStyle(
+                                  color: isDark ? Colors.white : Colors.black,
                                   fontSize: 20,
                                   fontWeight: FontWeight.w700,
                                 ),
                               ),
                               const Text(
                                 'Total members: 9',
-                                style: TextStyle(fontSize: 12),
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: isDark ? Colors.white : Colors.black,
+                                ),
                               ),
                               const SizedBox(
                                 height: 4,
@@ -472,7 +490,9 @@ class GridItem extends StatelessWidget {
         Text(
           name,
           style: const TextStyle(
-              fontSize: 14, fontWeight: FontWeight.w600, color: Colors.black54),
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
+              color: isDark ? Colors.white : Colors.black54),
         ),
       ],
     );

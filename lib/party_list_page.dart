@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:livintecchui/component/raisedbox.dart';
+import 'package:livintecchui/constant.dart';
 import 'package:livintecchui/group_about.dart';
 import 'package:livintecchui/reward_page.dart';
 
@@ -12,7 +13,10 @@ class PartyListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isAttendance = true;
     return Scaffold(
+      backgroundColor: isDark ? AppColors.blackLight : Colors.white,
       appBar: AppBar(
+        backgroundColor: isDark ? AppColors.blackLight : Colors.white,
+        foregroundColor: isDark ? Colors.white : AppColors.blackLight,
         title: const Padding(
           padding: EdgeInsets.only(top: 10.0),
           child: Text(
@@ -35,6 +39,10 @@ class PartyListPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => const GroupPartyAbout()));
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //         builder: (context) => const CreatePartyPage()));
               },
               child: const RaisedBox(
                   height: 34,
@@ -64,6 +72,7 @@ class PartyListPage extends StatelessWidget {
                           'Upcoming',
                           style: TextStyle(
                             fontSize: 18,
+                            color: isDark ? Colors.white : Colors.black,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -82,7 +91,7 @@ class PartyListPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
-                            color: Colors.black54,
+                            color: isDark ? Colors.white : Colors.black54,
                           ),
                         ),
                       ],
@@ -151,13 +160,13 @@ class PartyListPage extends StatelessWidget {
           borderRadius: BorderRadius.circular(
             15,
           ),
-          color: Colors.white,
+          color: isDark ? Colors.black : Colors.white,
           border: Border.all(
             color: Colors.black,
           ),
           boxShadow: const [
             BoxShadow(
-              color: Colors.black,
+              color: isDark ? Colors.white : Colors.black,
               spreadRadius: 1,
               blurRadius: 1,
               offset: Offset(3, 4), // changes position of shadow
@@ -191,13 +200,17 @@ class PartyListPage extends StatelessWidget {
             ),
             title: const Text(
               'Party Name',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+                color: isDark ? Colors.white : Colors.black,
+              ),
             ),
             subtitle: const Text(
               'Kitty party group name',
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.black54,
+                color: isDark ? Colors.white : Colors.black54,
               ),
             ),
             trailing: const Column(

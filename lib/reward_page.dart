@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:livintecchui/constant.dart';
 
 class RewardPage extends StatelessWidget {
   const RewardPage({super.key});
@@ -6,7 +7,10 @@ class RewardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: isDark ? AppColors.blackLight : Colors.white,
       appBar: AppBar(
+        backgroundColor: isDark ? AppColors.blackLight : Colors.white,
+        foregroundColor: isDark ? Colors.white : AppColors.blackLight,
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back_ios,
@@ -110,11 +114,13 @@ class RewardPage extends StatelessWidget {
         leading: Image.asset(
           'assets/gift.png',
           height: 35,
+          color: isDark ? Colors.white : Colors.black,
           width: 35,
         ),
         title: const Text(
           'Daily Check Bonus',
           style: TextStyle(
+            color: isDark ? Colors.white : Colors.black,
             fontSize: 18,
           ),
         ),
@@ -125,6 +131,7 @@ class RewardPage extends StatelessWidget {
         trailing: SizedBox(
             width: 80,
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Image.asset(
                   'assets/coin.png',

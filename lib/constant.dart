@@ -1,7 +1,9 @@
-import 'dart:ui';
+import 'package:flutter/material.dart';
 
 class AppColors {
   static const Color purpulish = Color.fromARGB(255, 226, 215, 245);
+  static Color blackColor = Colors.black26;
+  static Color blackLight = const Color.fromARGB(255, 27, 26, 26);
 }
 
 const bool isDark = false;

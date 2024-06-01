@@ -7,6 +7,7 @@ class CreateGroupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: isDark ? AppColors.blackLight : Colors.white,
         bottomNavigationBar: Container(
           margin: const EdgeInsets.symmetric(
             horizontal: 20,
@@ -17,7 +18,7 @@ class CreateGroupPage extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
             boxShadow: const [
               BoxShadow(
-                color: Colors.black,
+                color: isDark ? Colors.white : Colors.black,
                 spreadRadius: 1,
                 blurRadius: 1,
                 offset: Offset(2, 3), // changes position of shadow
@@ -44,7 +45,7 @@ class CreateGroupPage extends StatelessWidget {
         ),
         body: Container(
           height: double.infinity,
-          color: Colors.white,
+          color: isDark ? AppColors.blackLight : Colors.white,
           child: Stack(
             children: [
               SingleChildScrollView(
@@ -78,10 +79,15 @@ class CreateGroupPage extends StatelessWidget {
                         children: [
                           TextFormField(
                             decoration: const InputDecoration(
-                              focusColor: AppColors.purpulish,
-                              labelText: 'Group name*',
-                              hintText: 'Enter your name',
-                            ),
+                                focusColor: AppColors.purpulish,
+                                labelText: 'Group name*',
+                                hintText: 'Enter your name',
+                                labelStyle: TextStyle(
+                                    color:
+                                        isDark ? Colors.white : Colors.black),
+                                hintStyle: TextStyle(
+                                    color:
+                                        isDark ? Colors.white : Colors.black)),
                             keyboardType: TextInputType.phone,
                           ),
                           const SizedBox(
@@ -89,10 +95,15 @@ class CreateGroupPage extends StatelessWidget {
                           ),
                           TextFormField(
                             decoration: const InputDecoration(
-                              focusColor: AppColors.purpulish,
-                              labelText: 'Add a brief description*',
-                              hintText: 'Enter group description',
-                            ),
+                                focusColor: AppColors.purpulish,
+                                labelText: 'Add a brief description*',
+                                hintText: 'Enter group description',
+                                labelStyle: TextStyle(
+                                    color:
+                                        isDark ? Colors.white : Colors.black),
+                                hintStyle: TextStyle(
+                                    color:
+                                        isDark ? Colors.white : Colors.black)),
                             keyboardType: TextInputType.phone,
                           ),
                           const SizedBox(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:livintecchui/constant.dart';
 
 class AddImagePost extends StatefulWidget {
   const AddImagePost({super.key});
@@ -13,6 +14,7 @@ class _AddImagePostState extends State<AddImagePost> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: isDark ? AppColors.blackLight : Colors.white,
       bottomNavigationBar: Container(
         margin: EdgeInsets.symmetric(vertical: 12, horizontal: 15),
         decoration: BoxDecoration(
@@ -20,7 +22,7 @@ class _AddImagePostState extends State<AddImagePost> {
           borderRadius: BorderRadius.circular(20),
           boxShadow: const [
             BoxShadow(
-              color: Colors.black,
+              color: isDark ? Colors.white : Colors.black,
               spreadRadius: 1,
               blurRadius: 1,
               offset: Offset(2, 3), // changes position of shadow
@@ -46,6 +48,8 @@ class _AddImagePostState extends State<AddImagePost> {
         ),
       ),
       appBar: AppBar(
+        backgroundColor: isDark ? AppColors.blackLight : Colors.white,
+        foregroundColor: isDark ? Colors.white : AppColors.blackLight,
         title: const Text(
           'Create Post',
           style: TextStyle(
@@ -72,13 +76,14 @@ class _AddImagePostState extends State<AddImagePost> {
                     const Text(
                       'Ava Thompson',
                       style: TextStyle(
+                        color: isDark ? Colors.white : Colors.black,
                         fontWeight: FontWeight.w600,
                         fontSize: 16,
                       ),
                     ),
                     DropdownButton<String>(
                       elevation: 10,
-                      dropdownColor: Colors.white,
+                      dropdownColor: isDark ? Colors.black : Colors.white,
                       borderRadius: BorderRadius.circular(10),
                       value: selectedOption,
                       onChanged: (newValue) {
@@ -89,19 +94,39 @@ class _AddImagePostState extends State<AddImagePost> {
                       items: [
                         DropdownMenuItem(
                           value: 'public',
-                          child: Text('Public'),
+                          child: Text(
+                            'Public',
+                            style: TextStyle(
+                              color: isDark ? Colors.white : Colors.black,
+                            ),
+                          ),
                         ),
                         DropdownMenuItem(
                           value: 'k1',
-                          child: Text('Kitty Party'),
+                          child: Text(
+                            'Kitty Party',
+                            style: TextStyle(
+                              color: isDark ? Colors.white : Colors.black,
+                            ),
+                          ),
                         ),
                         DropdownMenuItem(
                           value: 'k2',
-                          child: Text('Kitty Party 2'),
+                          child: Text(
+                            'Kitty Party 2',
+                            style: TextStyle(
+                              color: isDark ? Colors.white : Colors.black,
+                            ),
+                          ),
                         ),
                         DropdownMenuItem(
                           value: 'k3',
-                          child: Text('Kitty Party 3'),
+                          child: Text(
+                            'Kitty Party 3',
+                            style: TextStyle(
+                              color: isDark ? Colors.white : Colors.black,
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -114,9 +139,13 @@ class _AddImagePostState extends State<AddImagePost> {
               maxLines: 16,
               showCursor: true,
               decoration: InputDecoration(
-                fillColor: Colors.white,
+                fillColor: isDark ? Colors.grey.shade800 : Colors.white,
                 filled: true,
                 hintText: 'Write Something',
+                labelStyle:
+                    TextStyle(color: isDark ? Colors.white : Colors.black),
+                hintStyle:
+                    TextStyle(color: isDark ? Colors.white : Colors.black),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
                   borderSide: BorderSide(
@@ -152,13 +181,14 @@ class _AddImagePostState extends State<AddImagePost> {
                 children: [
                   Image.asset(
                     'assets/imgadd.png',
+                    color: isDark ? Colors.white : Colors.black,
                     height: 80,
                     width: 80,
                   ),
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 15),
                     height: 60,
-                    color: Colors.black54,
+                    color: isDark ? Colors.white : Colors.black54,
                     width: 1,
                   ),
                   _buildImg(),
